@@ -13,6 +13,8 @@
 		688FAD6F25988820003EAE8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 688FAD6E25988820003EAE8A /* Preview Assets.xcassets */; };
 		688FAD7A25988820003EAE8A /* DragDropSortFilterDeleteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688FAD7925988820003EAE8A /* DragDropSortFilterDeleteTests.swift */; };
 		688FAD8525988820003EAE8A /* DragDropSortFilterDeleteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688FAD8425988820003EAE8A /* DragDropSortFilterDeleteUITests.swift */; };
+		688FAD9725988845003EAE8A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688FAD9625988845003EAE8A /* Card.swift */; };
+		688FADA525988D25003EAE8A /* ListWithNoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688FADA425988D25003EAE8A /* ListWithNoList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		688FAD8025988820003EAE8A /* DragDropSortFilterDeleteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DragDropSortFilterDeleteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		688FAD8425988820003EAE8A /* DragDropSortFilterDeleteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDropSortFilterDeleteUITests.swift; sourceTree = "<group>"; };
 		688FAD8625988820003EAE8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		688FAD9625988845003EAE8A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		688FADA425988D25003EAE8A /* ListWithNoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWithNoList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 			children = (
 				688FAD672598881F003EAE8A /* DragDropSortFilterDeleteApp.swift */,
 				688FAD692598881F003EAE8A /* ContentView.swift */,
+				688FAD9525988833003EAE8A /* Views */,
 				688FAD6B25988820003EAE8A /* Assets.xcassets */,
 				688FAD7025988820003EAE8A /* Info.plist */,
 				688FAD6D25988820003EAE8A /* Preview Content */,
@@ -128,6 +133,15 @@
 				688FAD8625988820003EAE8A /* Info.plist */,
 			);
 			path = DragDropSortFilterDeleteUITests;
+			sourceTree = "<group>";
+		};
+		688FAD9525988833003EAE8A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				688FAD9625988845003EAE8A /* Card.swift */,
+				688FADA425988D25003EAE8A /* ListWithNoList.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +274,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				688FAD6A2598881F003EAE8A /* ContentView.swift in Sources */,
+				688FAD9725988845003EAE8A /* Card.swift in Sources */,
+				688FADA525988D25003EAE8A /* ListWithNoList.swift in Sources */,
 				688FAD682598881F003EAE8A /* DragDropSortFilterDeleteApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
