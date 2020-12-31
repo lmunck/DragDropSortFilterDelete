@@ -15,6 +15,7 @@
 		688FAD8525988820003EAE8A /* DragDropSortFilterDeleteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688FAD8425988820003EAE8A /* DragDropSortFilterDeleteUITests.swift */; };
 		688FAD9725988845003EAE8A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688FAD9625988845003EAE8A /* Card.swift */; };
 		688FADA525988D25003EAE8A /* ListWithNoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688FADA425988D25003EAE8A /* ListWithNoList.swift */; };
+		68EDC5DF259CB2CE00CA3C3E /* DemoDragRelocateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EDC5DE259CB2CE00CA3C3E /* DemoDragRelocateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		688FAD8625988820003EAE8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		688FAD9625988845003EAE8A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		688FADA425988D25003EAE8A /* ListWithNoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWithNoList.swift; sourceTree = "<group>"; };
+		68EDC5DE259CB2CE00CA3C3E /* DemoDragRelocateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoDragRelocateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			children = (
 				688FAD9625988845003EAE8A /* Card.swift */,
 				688FADA425988D25003EAE8A /* ListWithNoList.swift */,
+				68EDC5DE259CB2CE00CA3C3E /* DemoDragRelocateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				688FAD9725988845003EAE8A /* Card.swift in Sources */,
 				688FADA525988D25003EAE8A /* ListWithNoList.swift in Sources */,
 				688FAD682598881F003EAE8A /* DragDropSortFilterDeleteApp.swift in Sources */,
+				68EDC5DF259CB2CE00CA3C3E /* DemoDragRelocateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
