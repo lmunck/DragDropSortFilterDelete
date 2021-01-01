@@ -8,8 +8,6 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-// Question - How do I reset dragging state, when user drops view in same laocation as they started (as if to cancel)
-
 struct GridData: Identifiable, Equatable {
     let id: String
 }
@@ -20,7 +18,6 @@ class Model: ObservableObject {
     @Published var data: [GridData]
 
     let columns = [
-        //GridItem(.fixed(160)),
         GridItem(.flexible(minimum: 60, maximum: 60))
     ]
 
@@ -38,20 +35,21 @@ struct DemoDragRelocateView: View {
     @StateObject private var model = Model()
 
     @State private var dragging: GridData? // I can't reset this when user drops view ins ame location as drag started
+    @State private var changedView: Bool = false
 
     var body: some View {
         VStack {
-            Text(dragging != nil ? "Dragging" : "Dropped")
             ScrollView(.vertical) {
                LazyVGrid(columns: model.columns, spacing: 5) {
                     ForEach(model.data) { d in
                         GridItemView(d: d)
-                            .opacity(dragging?.id == d.id ? 0 : 1)
+                            .opacity(dragging?.id == d.id && changedView ? 0 : 1)
                             .onDrag {
                                 self.dragging = d
+                                changedView = false
                                 return NSItemProvider(object: String(d.id) as NSString)
                             }
-                            .onDrop(of: [UTType.text], delegate: DragRelocateDelegate(item: d, listData: $model.data, current: $dragging))
+                            .onDrop(of: [UTType.text], delegate: DragRelocateDelegate(item: d, listData: $model.data, current: $dragging, changedView: $changedView))
                             
                     }
                 }.animation(.default, value: model.data)
@@ -59,7 +57,7 @@ struct DemoDragRelocateView: View {
         }
         .frame(maxWidth:.infinity, maxHeight: .infinity)
         .background(Color.gray.edgesIgnoringSafeArea(.all))
-        .onDrop(of: [UTType.text], delegate: DropOutsideDelegate(current: $dragging))
+        .onDrop(of: [UTType.text], delegate: DropOutsideDelegate(current: $dragging, changedView: $changedView))
     }
 }
 
@@ -67,12 +65,14 @@ struct DragRelocateDelegate: DropDelegate {
     let item: GridData
     @Binding var listData: [GridData]
     @Binding var current: GridData?
-
-    // None of these methods trigger unless the user has moved the view to another location
+    @Binding var changedView: Bool
     
     func dropEntered(info: DropInfo) {
         
-            print("dropEntered")
+        if current == nil { current = item }
+        
+        changedView = true
+        
         if item != current {
             let from = listData.firstIndex(of: current!)!
             let to = listData.firstIndex(of: item)!
@@ -84,32 +84,26 @@ struct DragRelocateDelegate: DropDelegate {
     }
 
     func dropUpdated(info: DropInfo) -> DropProposal? {
-        print("dropUpdated")
         return DropProposal(operation: .move)
     }
 
     func performDrop(info: DropInfo) -> Bool {
-        print("performDrop")
+        changedView = false
         self.current = nil
         return true
     }
     
-    func dropExited(info: DropInfo) {
-        print("dropExited")
-    }
-    
-    func validateDrop(info: DropInfo) -> Bool {
-        print("validateDrop")
-        return true
-    }
 }
-
-
 
 struct DropOutsideDelegate: DropDelegate {
     @Binding var current: GridData?
+    @Binding var changedView: Bool
         
+    func dropEntered(info: DropInfo) {
+        changedView = true
+    }
     func performDrop(info: DropInfo) -> Bool {
+        changedView = false
         current = nil
         return true
     }
